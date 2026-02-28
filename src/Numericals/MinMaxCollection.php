@@ -27,6 +27,10 @@ class MinMaxCollection
 
     public static function collectValues(mixed $rules, ScopeStack $scopeStack): array
     {
+        // Normalize stdClass → array so we can detect operations regardless of json_decode mode
+        if (is_object($rules)) {
+            $rules = (array)$rules;
+        }
         // If rules is an operation (assoc array with a known operator key), evaluate it
         if (is_array($rules) && !empty($rules) && Arr::isAssoc($rules)) {
             $evaluated = Engine::evaluate($rules, $scopeStack);

@@ -18,7 +18,12 @@ class Truthy
             return $subject !== '';
         }
         if (is_array($subject)) {
-            return !empty($subject);
+            if (empty($subject)) {
+                return false; // both [] and {} with no keys are falsy
+            }
+            // Non-empty JSON objects (assoc arrays) are always truthy, even if all values are falsy.
+            // Non-empty JSON arrays are truthy.
+            return true;
         }
         if ($subject === null) {
             return false;

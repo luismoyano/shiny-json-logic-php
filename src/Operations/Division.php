@@ -30,7 +30,7 @@ class Division extends AbstractOperation
                 $count++;
                 $result = ($result === null) ? $num : $result / $num;
             }
-        } catch (\TypeError $e) {
+        } catch (\TypeError | \DivisionByZeroError $e) {
             static::handleNan();
         }
 
@@ -38,8 +38,6 @@ class Division extends AbstractOperation
             static::handleInvalidArgs();
         }
 
-        $finalResult = ($count === 1) ? 1.0 / $result : $result;
-
-        return static::safeArithmetic(fn() => $finalResult);
+        return static::safeArithmetic(fn() => ($count === 1) ? 1.0 / $result : $result);
     }
 }

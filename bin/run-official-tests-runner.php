@@ -11,15 +11,17 @@ declare(strict_types=1);
  *   $argv[1]  project root (where vendor/autoload.php lives)
  *   $argv[2]  test file name shown in output (e.g. "legacy.json")
  *   $argv[3]  verbose flag: "1" to print PASS lines too
+ *   $argv[4]  decode mode: "arrays" (json_decode with true, default) or "stdclass" (json_decode without true)
  *
  * Input:  JSON test file content on STDIN
- * Output: PASS/FAIL lines, then a final "SUMMARY pass=N fail=N" line
+ * Output: PASS/FAIL lines, then a final "SUMMARY pass=N fail=N time=Xms" line
  * Exit:   1 if any test failed, 0 otherwise
  */
 
 $projectDir = $argv[1];
 $filename   = $argv[2];
 $verbose    = isset($argv[3]) && $argv[3] === '1';
+$mode       = $argv[4] ?? 'arrays';  // 'arrays' or 'stdclass'
 
 require $projectDir . '/vendor/autoload.php';
 
@@ -27,21 +29,35 @@ use ShinyJsonLogic\ShinyJsonLogic;
 use ShinyJsonLogic\Errors\JsonLogicException as ErrorBase;
 
 $json  = stream_get_contents(STDIN);
-$cases = json_decode($json, true);
+$assoc = ($mode !== 'stdclass');
+$cases = json_decode($json, $assoc);
 
 $pass = 0;
 $fail = 0;
 
-foreach ($cases as $i => $case) {
-    if (!is_array($case)) {
-        continue; // skip comment strings
-    }
+$timeStart = hrtime(true);
 
-    $description    = $case['description'] ?? "case #$i";
-    $rule           = $case['rule']   ?? null;
-    $data           = $case['data']   ?? null;
-    $expectedResult = $case['result'] ?? null;
-    $expectedError  = $case['error']  ?? null;
+foreach ($cases as $i => $case) {
+    // Skip comment strings
+    if ($assoc) {
+        if (!is_array($case)) continue;
+        $description    = $case['description'] ?? "case #$i";
+        $rule           = $case['rule']   ?? null;
+        $data           = $case['data']   ?? null;
+        $expectedResult = $case['result'] ?? null;
+        $expectedError  = $case['error']  ?? null;
+    } else {
+        if (!is_object($case)) continue;
+        $description    = $case->description ?? "case #$i";
+        $rule           = $case->rule   ?? null;
+        $data           = $case->data   ?? null;
+        $expectedResult = $case->result ?? null;
+        $expectedError  = $case->error  ?? null;
+        // expectedError is stdClass {type: "..."}, normalize for comparison
+        if ($expectedError !== null) {
+            $expectedError = (array)$expectedError;
+        }
+    }
 
     try {
         $result = ShinyJsonLogic::apply($rule, $data);
@@ -96,5 +112,7 @@ foreach ($cases as $i => $case) {
     }
 }
 
-echo "SUMMARY pass=$pass fail=$fail\n";
+$timeMs = (hrtime(true) - $timeStart) / 1e6;
+
+echo sprintf("SUMMARY pass=%d fail=%d time=%sms\n", $pass, $fail, number_format($timeMs, 2, '.', ''));
 exit($fail > 0 ? 1 : 0);

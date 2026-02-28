@@ -13,7 +13,12 @@ class TryOp extends AbstractOperation
 {
     public static function call(mixed $rules, ScopeStack $scopeStack): mixed
     {
-        $items = Arr::wrapNull($rules);
+        // If rules is a single operation (not a list), wrap it so we treat it as one item
+        if (is_array($rules) && Arr::isAssoc($rules)) {
+            $items = [$rules];
+        } else {
+            $items = Arr::wrapNull($rules);
+        }
         $lastError = null;
 
         foreach ($items as $item) {

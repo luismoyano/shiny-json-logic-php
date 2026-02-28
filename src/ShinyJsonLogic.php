@@ -31,6 +31,9 @@ class ShinyJsonLogic
 
     public static function deepStringifyKeys(mixed $obj): mixed
     {
+        if (is_object($obj)) {
+            $obj = (array)$obj;
+        }
         if (is_array($obj) && Arr::isAssoc($obj)) {
             $result = [];
             foreach ($obj as $key => $value) {

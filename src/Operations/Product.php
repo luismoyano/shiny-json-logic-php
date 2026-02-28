@@ -24,9 +24,8 @@ class Product extends AbstractOperation
             foreach ($operands as $rule) {
                 $evaluated = static::evaluate($rule, $scopeStack);
                 $num = Numerify::numerify($evaluated);
-                if ($num === null) {
-                    static::handleNan();
-                }
+                // null (e.g. from JS null) coerces to 0 in multiplication
+                $num = $num ?? 0.0;
                 $count++;
                 $result = ($result === null) ? (float)$num : $result * (float)$num;
             }

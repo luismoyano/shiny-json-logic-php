@@ -24,6 +24,10 @@ abstract class AbstractOperation
 
     protected static function resolveRules(mixed $rules, ScopeStack $scopeStack): mixed
     {
+        // Normalize stdClass → array so isOp can detect operations regardless of json_decode mode
+        if (is_object($rules) && !($rules instanceof \ShinyJsonLogic\Utils\DataArray)) {
+            $rules = (array)$rules;
+        }
         $dynamic = static::isOp($rules);
         if ($dynamic) {
             $rules = Engine::evaluate($rules, $scopeStack);
@@ -78,7 +82,7 @@ abstract class AbstractOperation
                 static::handleNan();
             }
             return $result;
-        } catch (\TypeError $e) {
+        } catch (\TypeError | \DivisionByZeroError $e) {
             static::handleNan();
         }
     }
