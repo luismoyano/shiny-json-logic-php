@@ -8,6 +8,7 @@ use ShinyJsonLogic\Engine;
 use ShinyJsonLogic\ScopeStack;
 use ShinyJsonLogic\OperatorSolver;
 use ShinyJsonLogic\Utils\Arr;
+use ShinyJsonLogic\Utils\EmptyObject;
 use ShinyJsonLogic\Errors\InvalidArguments;
 use ShinyJsonLogic\Errors\NotANumber;
 use function is_float;
@@ -24,9 +25,14 @@ abstract class AbstractOperation
 
     protected static function resolveRules(mixed $rules, ScopeStack $scopeStack): mixed
     {
-        // Normalize stdClass → array so isOp can detect operations regardless of json_decode mode
+        // Normalize stdClass → array so isOp can detect operations regardless of json_decode mode.
+        // Special case: empty stdClass ({}) must become EmptyObject sentinel, not [], because
+        // (array)new stdClass() === [] and we'd lose the "was an object" information.
         if (is_object($rules) && !($rules instanceof \ShinyJsonLogic\Utils\DataArray)) {
-            $rules = (array)$rules;
+            $rules = (array)$rules === [] ? EmptyObject::instance() : (array)$rules;
+        }
+        if ($rules instanceof EmptyObject) {
+            return $rules;
         }
         $dynamic = static::isOp($rules);
         if ($dynamic) {
