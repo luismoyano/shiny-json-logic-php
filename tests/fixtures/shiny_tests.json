@@ -1,0 +1,225 @@
+[
+    "=== var with false values (Bug 1 fix) ===",
+    {
+        "description": "var returns false when value is false",
+        "rule": { "var": "flag" },
+        "data": { "flag": false },
+        "result": false
+    },
+    {
+        "description": "var returns null when key does not exist",
+        "rule": { "var": "flag" },
+        "data": { "other": true },
+        "result": null
+    },
+    {
+        "description": "var returns null for missing key in empty data",
+        "rule": { "var": "flag" },
+        "data": {},
+        "result": null
+    },
+    {
+        "description": "var returns false for nested false value",
+        "rule": { "var": "user.is_beta" },
+        "data": { "user": { "is_beta": false } },
+        "result": false
+    },
+    {
+        "description": "var returns 0 when value is 0",
+        "rule": { "var": "count" },
+        "data": { "count": 0 },
+        "result": 0
+    },
+    {
+        "description": "var returns empty string when value is empty string",
+        "rule": { "var": "name" },
+        "data": { "name": "" },
+        "result": ""
+    },
+    {
+        "description": "var with default returns value when key exists with false",
+        "rule": { "var": ["flag", true] },
+        "data": { "flag": false },
+        "result": false
+    },
+    {
+        "description": "var with default returns default when key missing",
+        "rule": { "var": ["flag", "default_value"] },
+        "data": {},
+        "result": "default_value"
+    },
+
+    "=== == with nil/false (JSONLogic semantics) ===",
+    {
+        "description": "== with (null, false) returns true (JSONLogic: both convert to 0)",
+        "rule": { "==": [null, false] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (false, null) returns true (JSONLogic: both convert to 0)",
+        "rule": { "==": [false, null] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (null, null) returns true",
+        "rule": { "==": [null, null] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (false, false) returns true",
+        "rule": { "==": [false, false] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (0, false) returns true",
+        "rule": { "==": [0, false] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (null, 0) returns true",
+        "rule": { "==": [null, 0] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "== with (null, 1) returns false",
+        "rule": { "==": [null, 1] },
+        "data": {},
+        "result": false
+    },
+
+    "=== Combined scenarios: var + == ===",
+    {
+        "description": "var returning false compared with false equals true",
+        "rule": { "==": [{ "var": "is_beta" }, false] },
+        "data": { "is_beta": false },
+        "result": true
+    },
+    {
+        "description": "var returning null (missing key) compared with false equals true (JSONLogic)",
+        "rule": { "==": [{ "var": "is_beta" }, false] },
+        "data": {},
+        "result": true
+    },
+    {
+        "description": "var returning false compared with true equals false",
+        "rule": { "==": [{ "var": "is_beta" }, true] },
+        "data": { "is_beta": false },
+        "result": false
+    },
+    {
+        "description": "var returning 0 compared with false equals true",
+        "rule": { "==": [{ "var": "count" }, false] },
+        "data": { "count": 0 },
+        "result": true
+    },
+
+    "=== Indifferent access with string keys ===",
+    {
+        "description": "var accesses string key",
+        "rule": { "var": "name" },
+        "data": { "name": "John", "age": 30, "items": [1, 2, 3] },
+        "result": "John"
+    },
+    {
+        "description": "val accesses string key",
+        "rule": { "val": "age" },
+        "data": { "name": "John", "age": 30, "items": [1, 2, 3] },
+        "result": 30
+    },
+    {
+        "description": "missing with string keys",
+        "rule": { "missing": ["name", "address"] },
+        "data": { "name": "John", "age": 30, "items": [1, 2, 3] },
+        "result": ["address"]
+    },
+    {
+        "description": "missing_some with string keys",
+        "rule": { "missing_some": [1, ["name", "address"]] },
+        "data": { "name": "John", "age": 30, "items": [1, 2, 3] },
+        "result": []
+    },
+    {
+        "description": "map with string keys",
+        "rule": { "map": [{ "var": "items" }, { "*": [{ "var": "" }, 2] }] },
+        "data": { "name": "John", "age": 30, "items": [1, 2, 3] },
+        "result": [2, 4, 6]
+    },
+
+    "=== Rules with string keys ===",
+    {
+        "description": "evaluates simple var rule",
+        "rule": { "var": "x" },
+        "data": { "x": 10, "y": 20 },
+        "result": 10
+    },
+    {
+        "description": "evaluates nested addition rules",
+        "rule": { "+": [{ "var": "x" }, { "var": "y" }] },
+        "data": { "x": 10, "y": 20 },
+        "result": 30
+    },
+    {
+        "description": "evaluates if rule with string keys",
+        "rule": { "if": [{ ">": [{ "var": "x" }, 5] }, "big", "small"] },
+        "data": { "x": 10, "y": 20 },
+        "result": "big"
+    },
+
+    "=== Nested data access ===",
+    {
+        "description": "var accesses nested data with dot notation",
+        "rule": { "var": "person.name" },
+        "data": { "person": { "name": "Alice" } },
+        "result": "Alice"
+    },
+    {
+        "description": "var accesses deeply nested data",
+        "rule": { "var": "person.details.age" },
+        "data": { "person": { "details": { "age": 28 } } },
+        "result": 28
+    },
+    {
+        "description": "val accesses nested data with array path",
+        "rule": { "val": ["person", "name"] },
+        "data": { "person": { "name": "Alice" } },
+        "result": "Alice"
+    },
+    {
+        "description": "val accesses deeply nested data",
+        "rule": { "val": ["person", "details", "age"] },
+        "data": { "person": { "details": { "age": 28 } } },
+        "result": 28
+    },
+
+    "=== Complex rules ===",
+    {
+        "description": "addition with var",
+        "rule": { "+": [{ "var": "x" }, { "var": "y" }] },
+        "data": { "x": 10, "y": 20 },
+        "result": 30
+    },
+    {
+        "description": "if with comparison",
+        "rule": { "if": [{ ">": [{ "var": "x" }, 5] }, "big", "small"] },
+        "data": { "x": 10 },
+        "result": "big"
+    },
+    {
+        "description": "if with comparison returning small",
+        "rule": { "if": [{ ">": [{ "var": "x" }, 5] }, "big", "small"] },
+        "data": { "x": 3 },
+        "result": "small"
+    },
+    {
+        "description": "complex nested if with age check",
+        "rule": { "if": [{ ">=": [{ "var": "age" }, 18] }, "adult", "minor"] },
+        "data": { "age": 28 },
+        "result": "adult"
+    }
+]

@@ -1,0 +1,18 @@
+# Dependencies
+/vendor/
+
+# Composer
+composer.phar
+
+# Temporary files
+/tmp/
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4615 @@
+[
+  {
+    "description": "Non-rules get passed through (1)",
+    "rule": true,
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Non-rules get passed through (2)",
+    "rule": false,
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Non-rules get passed through (3)",
+    "rule": 17,
+    "data": {},
+    "result": 17
+  },
+  {
+    "description": "Non-rules get passed through (4)",
+    "rule": 3.14,
+    "data": {},
+    "result": 3.14
+  },
+  {
+    "description": "Non-rules get passed through (5)",
+    "rule": "apple",
+    "data": {},
+    "result": "apple"
+  },
+  {
+    "description": "Non-rules get passed through (6)",
+    "rule": null,
+    "data": {},
+    "result": null
+  },
+  {
+    "description": "Non-rules get passed through (7)",
+    "rule": [
+      "a",
+      "b"
+    ],
+    "data": {},
+    "result": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "description": "Single operator tests (1)",
+    "rule": {
+      "==": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (2)",
+    "rule": {
+      "==": [
+        1,
+        "1"
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (3)",
+    "rule": {
+      "==": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (4)",
+    "rule": {
+      "===": [
+        1,
+        "1"
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (5)",
+    "rule": {
+      "===": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (6)",
+    "rule": {
+      "===": [
+        1,
+        "1"
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (7)",
+    "rule": {
+      "===": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (8)",
+    "rule": {
+      "!=": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (9)",
+    "rule": {
+      "!=": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (10)",
+    "rule": {
+      "!=": [
+        1,
+        "1"
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (11)",
+    "rule": {
+      "!==": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (12)",
+    "rule": {
+      "!==": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (13)",
+    "rule": {
+      "!==": [
+        1,
+        "1"
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (14)",
+    "rule": {
+      ">": [
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (15)",
+    "rule": {
+      ">": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (16)",
+    "rule": {
+      ">": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (17)",
+    "rule": {
+      ">": [
+        "2",
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (18)",
+    "rule": {
+      ">=": [
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (19)",
+    "rule": {
+      ">=": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (20)",
+    "rule": {
+      ">=": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (21)",
+    "rule": {
+      ">=": [
+        "2",
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (22)",
+    "rule": {
+      "<": [
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (23)",
+    "rule": {
+      "<": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (24)",
+    "rule": {
+      "<": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (25)",
+    "rule": {
+      "<": [
+        "1",
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (26)",
+    "rule": {
+      "<": [
+        1,
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (27)",
+    "rule": {
+      "<": [
+        1,
+        1,
+        3
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (28)",
+    "rule": {
+      "<": [
+        1,
+        4,
+        3
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (29)",
+    "rule": {
+      "<=": [
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (30)",
+    "rule": {
+      "<=": [
+        1,
+        1
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (31)",
+    "rule": {
+      "<=": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (32)",
+    "rule": {
+      "<=": [
+        "1",
+        2
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (33)",
+    "rule": {
+      "<=": [
+        1,
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (34)",
+    "rule": {
+      "<=": [
+        1,
+        4,
+        3
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (35)",
+    "rule": {
+      "!": [
+        false
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (36)",
+    "rule": {
+      "!": false
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (37)",
+    "rule": {
+      "!": [
+        true
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (38)",
+    "rule": {
+      "!": true
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (39)",
+    "rule": {
+      "!": 0
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (40)",
+    "rule": {
+      "!": 1
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (41)",
+    "rule": {
+      "or": [
+        true,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (42)",
+    "rule": {
+      "or": [
+        false,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (43)",
+    "rule": {
+      "or": [
+        true,
+        false
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (44)",
+    "rule": {
+      "or": [
+        false,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (45)",
+    "rule": {
+      "or": [
+        false,
+        false,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (46)",
+    "rule": {
+      "or": [
+        false,
+        false,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (47)",
+    "rule": {
+      "or": [
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (48)",
+    "rule": {
+      "or": [
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (49)",
+    "rule": {
+      "or": [
+        1,
+        3
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (50)",
+    "rule": {
+      "or": [
+        3,
+        false
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (51)",
+    "rule": {
+      "or": [
+        false,
+        3
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (52)",
+    "rule": {
+      "and": [
+        true,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (53)",
+    "rule": {
+      "and": [
+        false,
+        true
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (54)",
+    "rule": {
+      "and": [
+        true,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (55)",
+    "rule": {
+      "and": [
+        false,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (56)",
+    "rule": {
+      "and": [
+        true,
+        true,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (57)",
+    "rule": {
+      "and": [
+        true,
+        true,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (58)",
+    "rule": {
+      "and": [
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (59)",
+    "rule": {
+      "and": [
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (60)",
+    "rule": {
+      "and": [
+        1,
+        3
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (61)",
+    "rule": {
+      "and": [
+        3,
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (62)",
+    "rule": {
+      "and": [
+        false,
+        3
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (63)",
+    "rule": {
+      "?:": [
+        true,
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (64)",
+    "rule": {
+      "?:": [
+        false,
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": 2
+  },
+  {
+    "description": "Single operator tests (65)",
+    "rule": {
+      "in": [
+        "Bart",
+        [
+          "Bart",
+          "Homer",
+          "Lisa",
+          "Marge",
+          "Maggie"
+        ]
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (66)",
+    "rule": {
+      "in": [
+        "Milhouse",
+        [
+          "Bart",
+          "Homer",
+          "Lisa",
+          "Marge",
+          "Maggie"
+        ]
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (67)",
+    "rule": {
+      "in": [
+        "Spring",
+        "Springfield"
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Single operator tests (68)",
+    "rule": {
+      "in": [
+        "i",
+        "team"
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Single operator tests (69)",
+    "rule": {
+      "cat": "ice"
+    },
+    "data": {},
+    "result": "ice"
+  },
+  {
+    "description": "Single operator tests (70)",
+    "rule": {
+      "cat": [
+        "ice"
+      ]
+    },
+    "data": {},
+    "result": "ice"
+  },
+  {
+    "description": "Single operator tests (71)",
+    "rule": {
+      "cat": [
+        "ice",
+        "cream"
+      ]
+    },
+    "data": {},
+    "result": "icecream"
+  },
+  {
+    "description": "Single operator tests (72)",
+    "rule": {
+      "cat": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": "12"
+  },
+  {
+    "description": "Single operator tests (73)",
+    "rule": {
+      "cat": [
+        "Robocop",
+        2
+      ]
+    },
+    "data": {},
+    "result": "Robocop2"
+  },
+  {
+    "description": "Single operator tests (74)",
+    "rule": {
+      "cat": [
+        "we all scream for ",
+        "ice",
+        "cream"
+      ]
+    },
+    "data": {},
+    "result": "we all scream for icecream"
+  },
+  {
+    "description": "Single operator tests (75)",
+    "rule": {
+      "%": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (76)",
+    "rule": {
+      "%": [
+        2,
+        2
+      ]
+    },
+    "data": {},
+    "result": 0
+  },
+  {
+    "description": "Single operator tests (77)",
+    "rule": {
+      "%": [
+        3,
+        2
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (78)",
+    "rule": {
+      "max": [
+        1,
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (79)",
+    "rule": {
+      "max": [
+        1,
+        3,
+        3
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (80)",
+    "rule": {
+      "max": [
+        3,
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (81)",
+    "rule": {
+      "max": [
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (82)",
+    "rule": {
+      "min": [
+        1,
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (83)",
+    "rule": {
+      "min": [
+        1,
+        1,
+        3
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (84)",
+    "rule": {
+      "min": [
+        3,
+        2,
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (85)",
+    "rule": {
+      "min": [
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (86)",
+    "rule": {
+      "+": [
+        1,
+        2
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "Single operator tests (87)",
+    "rule": {
+      "+": [
+        2,
+        2,
+        2
+      ]
+    },
+    "data": {},
+    "result": 6
+  },
+  {
+    "description": "Single operator tests (88)",
+    "rule": {
+      "+": [
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (89)",
+    "rule": {
+      "+": [
+        "1",
+        1
+      ]
+    },
+    "data": {},
+    "result": 2
+  },
+  {
+    "description": "Single operator tests (90)",
+    "rule": {
+      "*": [
+        3,
+        2
+      ]
+    },
+    "data": {},
+    "result": 6
+  },
+  {
+    "description": "Single operator tests (91)",
+    "rule": {
+      "*": [
+        2,
+        2,
+        2
+      ]
+    },
+    "data": {},
+    "result": 8
+  },
+  {
+    "description": "Single operator tests (92)",
+    "rule": {
+      "*": [
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (93)",
+    "rule": {
+      "*": [
+        "1",
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (94)",
+    "rule": {
+      "-": [
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": -1
+  },
+  {
+    "description": "Single operator tests (95)",
+    "rule": {
+      "-": [
+        3,
+        2
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Single operator tests (96)",
+    "rule": {
+      "-": [
+        3
+      ]
+    },
+    "data": {},
+    "result": -3
+  },
+  {
+    "description": "Single operator tests (97)",
+    "rule": {
+      "-": [
+        "1",
+        1
+      ]
+    },
+    "data": {},
+    "result": 0
+  },
+  {
+    "description": "Single operator tests (98)",
+    "rule": {
+      "/": [
+        4,
+        2
+      ]
+    },
+    "data": {},
+    "result": 2
+  },
+  {
+    "description": "Single operator tests (99)",
+    "rule": {
+      "/": [
+        2,
+        4
+      ]
+    },
+    "data": {},
+    "result": 0.5
+  },
+  {
+    "description": "Single operator tests (100)",
+    "rule": {
+      "/": [
+        "1",
+        1
+      ]
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "Substring (1)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        4
+      ]
+    },
+    "data": null,
+    "result": "logic"
+  },
+  {
+    "description": "Substring (2)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        -5
+      ]
+    },
+    "data": null,
+    "result": "logic"
+  },
+  {
+    "description": "Substring (3)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        0,
+        1
+      ]
+    },
+    "data": null,
+    "result": "j"
+  },
+  {
+    "description": "Substring (4)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        -1,
+        1
+      ]
+    },
+    "data": null,
+    "result": "c"
+  },
+  {
+    "description": "Substring (5)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        4,
+        5
+      ]
+    },
+    "data": null,
+    "result": "logic"
+  },
+  {
+    "description": "Substring (6)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        -5,
+        5
+      ]
+    },
+    "data": null,
+    "result": "logic"
+  },
+  {
+    "description": "Substring (7)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        -5,
+        -2
+      ]
+    },
+    "data": null,
+    "result": "log"
+  },
+  {
+    "description": "Substring (8)",
+    "rule": {
+      "substr": [
+        "jsonlogic",
+        1,
+        -5
+      ]
+    },
+    "data": null,
+    "result": "son"
+  },
+  {
+    "description": "Merge arrays (1)",
+    "rule": {
+      "merge": []
+    },
+    "data": null,
+    "result": []
+  },
+  {
+    "description": "Merge arrays (2)",
+    "rule": {
+      "merge": [
+        [
+          1
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1
+    ]
+  },
+  {
+    "description": "Merge arrays (3)",
+    "rule": {
+      "merge": [
+        [
+          1
+        ],
+        []
+      ]
+    },
+    "data": null,
+    "result": [
+      1
+    ]
+  },
+  {
+    "description": "Merge arrays (4)",
+    "rule": {
+      "merge": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2
+    ]
+  },
+  {
+    "description": "Merge arrays (5)",
+    "rule": {
+      "merge": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Merge arrays (6)",
+    "rule": {
+      "merge": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Merge arrays (7)",
+    "rule": {
+      "merge": [
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Given non-array arguments, merge converts them to arrays (1)",
+    "rule": {
+      "merge": 1
+    },
+    "data": null,
+    "result": [
+      1
+    ]
+  },
+  {
+    "description": "Given non-array arguments, merge converts them to arrays (2)",
+    "rule": {
+      "merge": [
+        1,
+        2
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2
+    ]
+  },
+  {
+    "description": "Given non-array arguments, merge converts them to arrays (3)",
+    "rule": {
+      "merge": [
+        1,
+        [
+          2
+        ]
+      ]
+    },
+    "data": null,
+    "result": [
+      1,
+      2
+    ]
+  },
+  {
+    "description": "Too few args (1)",
+    "rule": {
+      "if": []
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "Too few args (2)",
+    "rule": {
+      "if": [
+        true
+      ]
+    },
+    "data": null,
+    "result": true
+  },
+  {
+    "description": "Too few args (3)",
+    "rule": {
+      "if": [
+        false
+      ]
+    },
+    "data": null,
+    "result": false
+  },
+  {
+    "description": "Too few args (4)",
+    "rule": {
+      "if": [
+        "apple"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Simple if/then/else cases (1)",
+    "rule": {
+      "if": [
+        true,
+        "apple"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Simple if/then/else cases (2)",
+    "rule": {
+      "if": [
+        false,
+        "apple"
+      ]
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "Simple if/then/else cases (3)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Simple if/then/else cases (4)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "Empty arrays are falsey (1)",
+    "rule": {
+      "if": [
+        [],
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "Empty arrays are falsey (2)",
+    "rule": {
+      "if": [
+        [
+          1
+        ],
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Empty arrays are falsey (3)",
+    "rule": {
+      "if": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Empty strings are falsey, all other strings are truthy (1)",
+    "rule": {
+      "if": [
+        "",
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "Empty strings are falsey, all other strings are truthy (2)",
+    "rule": {
+      "if": [
+        "zucchini",
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Empty strings are falsey, all other strings are truthy (3)",
+    "rule": {
+      "if": [
+        "0",
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "You can cast a string to numeric with a unary + (1)",
+    "rule": {
+      "===": [
+        0,
+        "0"
+      ]
+    },
+    "data": null,
+    "result": false
+  },
+  {
+    "description": "You can cast a string to numeric with a unary + (2)",
+    "rule": {
+      "===": [
+        0,
+        {
+          "+": "0"
+        }
+      ]
+    },
+    "data": null,
+    "result": true
+  },
+  {
+    "description": "You can cast a string to numeric with a unary + (3)",
+    "rule": {
+      "if": [
+        {
+          "+": "0"
+        },
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "You can cast a string to numeric with a unary + (4)",
+    "rule": {
+      "if": [
+        {
+          "+": "1"
+        },
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Zero is falsy, all other numbers are truthy (1)",
+    "rule": {
+      "if": [
+        0,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "Zero is falsy, all other numbers are truthy (2)",
+    "rule": {
+      "if": [
+        1,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Zero is falsy, all other numbers are truthy (3)",
+    "rule": {
+      "if": [
+        3.1416,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Zero is falsy, all other numbers are truthy (4)",
+    "rule": {
+      "if": [
+        -1,
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (1)",
+    "rule": {
+      "!": [
+        []
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (2)",
+    "rule": {
+      "!!": [
+        []
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (3)",
+    "rule": {
+      "and": [
+        [],
+        true
+      ]
+    },
+    "data": {},
+    "result": []
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (4)",
+    "rule": {
+      "or": [
+        [],
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (5)",
+    "rule": {
+      "!": [
+        0
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (6)",
+    "rule": {
+      "!!": [
+        0
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (7)",
+    "rule": {
+      "and": [
+        0,
+        true
+      ]
+    },
+    "data": {},
+    "result": 0
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (8)",
+    "rule": {
+      "or": [
+        0,
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (9)",
+    "rule": {
+      "!": [
+        ""
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (10)",
+    "rule": {
+      "!!": [
+        ""
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (11)",
+    "rule": {
+      "and": [
+        "",
+        true
+      ]
+    },
+    "data": {},
+    "result": ""
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (12)",
+    "rule": {
+      "or": [
+        "",
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (13)",
+    "rule": {
+      "!": [
+        "0"
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (14)",
+    "rule": {
+      "!!": [
+        "0"
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (15)",
+    "rule": {
+      "and": [
+        "0",
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Truthy and falsy definitions matter in Boolean operations (16)",
+    "rule": {
+      "or": [
+        "0",
+        true
+      ]
+    },
+    "data": {},
+    "result": "0"
+  },
+  {
+    "description": "If the conditional is logic, it gets evaluated (1)",
+    "rule": {
+      "if": [
+        {
+          ">": [
+            2,
+            1
+          ]
+        },
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If the conditional is logic, it gets evaluated (2)",
+    "rule": {
+      "if": [
+        {
+          ">": [
+            1,
+            2
+          ]
+        },
+        "apple",
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If the consequents are logic, they get evaluated (1)",
+    "rule": {
+      "if": [
+        true,
+        {
+          "cat": [
+            "ap",
+            "ple"
+          ]
+        },
+        {
+          "cat": [
+            "ba",
+            "na",
+            "na"
+          ]
+        }
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If the consequents are logic, they get evaluated (2)",
+    "rule": {
+      "if": [
+        false,
+        {
+          "cat": [
+            "ap",
+            "ple"
+          ]
+        },
+        {
+          "cat": [
+            "ba",
+            "na",
+            "na"
+          ]
+        }
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If/then/elseif/then cases (1)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        true,
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (2)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        false,
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (3)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        true,
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If/then/elseif/then cases (4)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        false,
+        "banana"
+      ]
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "If/then/elseif/then cases (5)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        true,
+        "banana",
+        "carrot"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (6)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        false,
+        "banana",
+        "carrot"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (7)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        true,
+        "banana",
+        "carrot"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If/then/elseif/then cases (8)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        false,
+        "banana",
+        "carrot"
+      ]
+    },
+    "data": null,
+    "result": "carrot"
+  },
+  {
+    "description": "If/then/elseif/then cases (9)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        false,
+        "banana",
+        false,
+        "carrot"
+      ]
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "If/then/elseif/then cases (10)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        false,
+        "banana",
+        false,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "date"
+  },
+  {
+    "description": "If/then/elseif/then cases (11)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        false,
+        "banana",
+        true,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "carrot"
+  },
+  {
+    "description": "If/then/elseif/then cases (12)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        true,
+        "banana",
+        false,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If/then/elseif/then cases (13)",
+    "rule": {
+      "if": [
+        false,
+        "apple",
+        true,
+        "banana",
+        true,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "banana"
+  },
+  {
+    "description": "If/then/elseif/then cases (14)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        false,
+        "banana",
+        false,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (15)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        false,
+        "banana",
+        true,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (16)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        true,
+        "banana",
+        false,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "If/then/elseif/then cases (17)",
+    "rule": {
+      "if": [
+        true,
+        "apple",
+        true,
+        "banana",
+        true,
+        "carrot",
+        "date"
+      ]
+    },
+    "data": null,
+    "result": "apple"
+  },
+  {
+    "description": "Arrays with logic (1)",
+    "rule": [
+      1,
+      {
+        "var": "x"
+      },
+      3
+    ],
+    "data": {
+      "x": 2
+    },
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Arrays with logic (2)",
+    "rule": {
+      "if": [
+        {
+          "var": "x"
+        },
+        [
+          {
+            "var": "y"
+          }
+        ],
+        99
+      ]
+    },
+    "data": {
+      "x": true,
+      "y": 42
+    },
+    "result": [
+      42
+    ]
+  },
+  {
+    "description": "Compound Tests (1)",
+    "rule": {
+      "and": [
+        {
+          ">": [
+            3,
+            1
+          ]
+        },
+        true
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Compound Tests (2)",
+    "rule": {
+      "and": [
+        {
+          ">": [
+            3,
+            1
+          ]
+        },
+        false
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Compound Tests (3)",
+    "rule": {
+      "and": [
+        {
+          ">": [
+            3,
+            1
+          ]
+        },
+        {
+          "!": true
+        }
+      ]
+    },
+    "data": {},
+    "result": false
+  },
+  {
+    "description": "Compound Tests (4)",
+    "rule": {
+      "and": [
+        {
+          ">": [
+            3,
+            1
+          ]
+        },
+        {
+          "<": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    "data": {},
+    "result": true
+  },
+  {
+    "description": "Compound Tests (5)",
+    "rule": {
+      "?:": [
+        {
+          ">": [
+            3,
+            1
+          ]
+        },
+        "visible",
+        "hidden"
+      ]
+    },
+    "data": {},
+    "result": "visible"
+  },
+  {
+    "description": "Data-Driven (1)",
+    "rule": {
+      "var": [
+        "a"
+      ]
+    },
+    "data": {
+      "a": 1
+    },
+    "result": 1
+  },
+  {
+    "description": "Data-Driven (2)",
+    "rule": {
+      "var": [
+        "b"
+      ]
+    },
+    "data": {
+      "a": 1
+    },
+    "result": null
+  },
+  {
+    "description": "Data-Driven (3)",
+    "rule": {
+      "var": [
+        "a"
+      ]
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "Data-Driven (4)",
+    "rule": {
+      "var": "a"
+    },
+    "data": {
+      "a": 1
+    },
+    "result": 1
+  },
+  {
+    "description": "Data-Driven (5)",
+    "rule": {
+      "var": "b"
+    },
+    "data": {
+      "a": 1
+    },
+    "result": null
+  },
+  {
+    "description": "Data-Driven (6)",
+    "rule": {
+      "var": "a"
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "Data-Driven (7)",
+    "rule": {
+      "var": [
+        "a",
+        1
+      ]
+    },
+    "data": null,
+    "result": 1
+  },
+  {
+    "description": "Data-Driven (8)",
+    "rule": {
+      "var": [
+        "b",
+        2
+      ]
+    },
+    "data": {
+      "a": 1
+    },
+    "result": 2
+  },
+  {
+    "description": "Data-Driven (9)",
+    "rule": {
+      "var": "a.b"
+    },
+    "data": {
+      "a": {
+        "b": "c"
+      }
+    },
+    "result": "c"
+  },
+  {
+    "description": "Data-Driven (10)",
+    "rule": {
+      "var": "a.q"
+    },
+    "data": {
+      "a": {
+        "b": "c"
+      }
+    },
+    "result": null
+  },
+  {
+    "description": "Data-Driven (11)",
+    "rule": {
+      "var": [
+        "a.q",
+        9
+      ]
+    },
+    "data": {
+      "a": {
+        "b": "c"
+      }
+    },
+    "result": 9
+  },
+  {
+    "description": "Data-Driven (12)",
+    "rule": {
+      "var": 1
+    },
+    "data": [
+      "apple",
+      "banana"
+    ],
+    "result": "banana"
+  },
+  {
+    "description": "Data-Driven (13)",
+    "rule": {
+      "var": "1"
+    },
+    "data": [
+      "apple",
+      "banana"
+    ],
+    "result": "banana"
+  },
+  {
+    "description": "Data-Driven (14)",
+    "rule": {
+      "var": "1.1"
+    },
+    "data": [
+      "apple",
+      [
+        "banana",
+        "beer"
+      ]
+    ],
+    "result": "beer"
+  },
+  {
+    "description": "Data-Driven (15)",
+    "rule": {
+      "and": [
+        {
+          "<": [
+            {
+              "var": "temp"
+            },
+            110
+          ]
+        },
+        {
+          "==": [
+            {
+              "var": "pie.filling"
+            },
+            "apple"
+          ]
+        }
+      ]
+    },
+    "data": {
+      "temp": 100,
+      "pie": {
+        "filling": "apple"
+      }
+    },
+    "result": true
+  },
+  {
+    "description": "Data-Driven (16)",
+    "rule": {
+      "var": [
+        {
+          "?:": [
+            {
+              "<": [
+                {
+                  "var": "temp"
+                },
+                110
+              ]
+            },
+            "pie.filling",
+            "pie.eta"
+          ]
+        }
+      ]
+    },
+    "data": {
+      "temp": 100,
+      "pie": {
+        "filling": "apple",
+        "eta": "60s"
+      }
+    },
+    "result": "apple"
+  },
+  {
+    "description": "Data-Driven (17)",
+    "rule": {
+      "in": [
+        {
+          "var": "filling"
+        },
+        [
+          "apple",
+          "cherry"
+        ]
+      ]
+    },
+    "data": {
+      "filling": "apple"
+    },
+    "result": true
+  },
+  {
+    "description": "Data-Driven (18)",
+    "rule": {
+      "var": "a.b.c"
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "Data-Driven (19)",
+    "rule": {
+      "var": "a.b.c"
+    },
+    "data": {
+      "a": null
+    },
+    "result": null
+  },
+  {
+    "description": "Data-Driven (20)",
+    "rule": {
+      "var": "a.b.c"
+    },
+    "data": {
+      "a": {
+        "b": null
+      }
+    },
+    "result": null
+  },
+  {
+    "description": "Data-Driven (21)",
+    "rule": {
+      "var": ""
+    },
+    "data": 1,
+    "result": 1
+  },
+  {
+    "description": "Data-Driven (22)",
+    "rule": {
+      "var": null
+    },
+    "data": 1,
+    "result": 1
+  },
+  {
+    "description": "Data-Driven (23)",
+    "rule": {
+      "var": []
+    },
+    "data": 1,
+    "result": 1
+  },
+  {
+    "description": "Missing (1)",
+    "rule": {
+      "missing": []
+    },
+    "data": null,
+    "result": []
+  },
+  {
+    "description": "Missing (2)",
+    "rule": {
+      "missing": [
+        "a"
+      ]
+    },
+    "data": null,
+    "result": [
+      "a"
+    ]
+  },
+  {
+    "description": "Missing (3)",
+    "rule": {
+      "missing": "a"
+    },
+    "data": null,
+    "result": [
+      "a"
+    ]
+  },
+  {
+    "description": "Missing (4)",
+    "rule": {
+      "missing": "a"
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing (5)",
+    "rule": {
+      "missing": [
+        "a"
+      ]
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing (6)",
+    "rule": {
+      "missing": [
+        "a",
+        "b"
+      ]
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": [
+      "b"
+    ]
+  },
+  {
+    "description": "Missing (7)",
+    "rule": {
+      "missing": [
+        "a",
+        "b"
+      ]
+    },
+    "data": {
+      "b": "banana"
+    },
+    "result": [
+      "a"
+    ]
+  },
+  {
+    "description": "Missing (8)",
+    "rule": {
+      "missing": [
+        "a",
+        "b"
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "b": "banana"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing (9)",
+    "rule": {
+      "missing": [
+        "a",
+        "b"
+      ]
+    },
+    "data": {},
+    "result": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "description": "Missing (10)",
+    "rule": {
+      "missing": [
+        "a",
+        "b"
+      ]
+    },
+    "data": null,
+    "result": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "description": "Missing (11)",
+    "rule": {
+      "missing": [
+        "a.b"
+      ]
+    },
+    "data": null,
+    "result": [
+      "a.b"
+    ]
+  },
+  {
+    "description": "Missing (12)",
+    "rule": {
+      "missing": [
+        "a.b"
+      ]
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": [
+      "a.b"
+    ]
+  },
+  {
+    "description": "Missing (13)",
+    "rule": {
+      "missing": [
+        "a.b"
+      ]
+    },
+    "data": {
+      "a": {
+        "c": "apple cake"
+      }
+    },
+    "result": [
+      "a.b"
+    ]
+  },
+  {
+    "description": "Missing (14)",
+    "rule": {
+      "missing": [
+        "a.b"
+      ]
+    },
+    "data": {
+      "a": {
+        "b": "apple brownie"
+      }
+    },
+    "result": []
+  },
+  {
+    "description": "Missing (15)",
+    "rule": {
+      "missing": [
+        "a.b",
+        "a.c"
+      ]
+    },
+    "data": {
+      "a": {
+        "b": "apple brownie"
+      }
+    },
+    "result": [
+      "a.c"
+    ]
+  },
+  {
+    "description": "Missing some (1)",
+    "rule": {
+      "missing_some": [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (2)",
+    "rule": {
+      "missing_some": [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "data": {
+      "b": "banana"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (3)",
+    "rule": {
+      "missing_some": [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "b": "banana"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (4)",
+    "rule": {
+      "missing_some": [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "data": {
+      "c": "carrot"
+    },
+    "result": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "description": "Missing some (5)",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "b": "banana"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (6)",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "c": "carrot"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (7)",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "b": "banana",
+      "c": "carrot"
+    },
+    "result": []
+  },
+  {
+    "description": "Missing some (8)",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "a": "apple",
+      "d": "durian"
+    },
+    "result": [
+      "b",
+      "c"
+    ]
+  },
+  {
+    "description": "Missing some (9)",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "d": "durian",
+      "e": "eggplant"
+    },
+    "result": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "description": "Missing and If are friends, because empty arrays are falsey in JsonLogic (1)",
+    "rule": {
+      "if": [
+        {
+          "missing": "a"
+        },
+        "missed it",
+        "found it"
+      ]
+    },
+    "data": {
+      "a": "apple"
+    },
+    "result": "found it"
+  },
+  {
+    "description": "Missing and If are friends, because empty arrays are falsey in JsonLogic (2)",
+    "rule": {
+      "if": [
+        {
+          "missing": "a"
+        },
+        "missed it",
+        "found it"
+      ]
+    },
+    "data": {
+      "b": "banana"
+    },
+    "result": "missed it"
+  },
+  {
+    "description": "Missing, Merge, and If are friends. VIN is always required, APR is only required if financing is true. (1)",
+    "rule": {
+      "missing": {
+        "merge": [
+          "vin",
+          {
+            "if": [
+              {
+                "var": "financing"
+              },
+              [
+                "apr"
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    "data": {
+      "financing": true
+    },
+    "result": [
+      "vin",
+      "apr"
+    ]
+  },
+  {
+    "description": "Missing, Merge, and If are friends. VIN is always required, APR is only required if financing is true. (2)",
+    "rule": {
+      "missing": {
+        "merge": [
+          "vin",
+          {
+            "if": [
+              {
+                "var": "financing"
+              },
+              [
+                "apr"
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    "data": {
+      "financing": false
+    },
+    "result": [
+      "vin"
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (1)",
+    "rule": {
+      "filter": [
+        {
+          "var": "integers"
+        },
+        true
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (2)",
+    "rule": {
+      "filter": [
+        {
+          "var": "integers"
+        },
+        false
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": []
+  },
+  {
+    "description": "Filter, map, all, none, and some (3)",
+    "rule": {
+      "filter": [
+        {
+          "var": "integers"
+        },
+        {
+          ">=": [
+            {
+              "var": ""
+            },
+            2
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": [
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (4)",
+    "rule": {
+      "filter": [
+        {
+          "var": "integers"
+        },
+        {
+          "%": [
+            {
+              "var": ""
+            },
+            2
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": [
+      1,
+      3
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (5)",
+    "rule": {
+      "map": [
+        {
+          "var": "integers"
+        },
+        {
+          "*": [
+            {
+              "var": ""
+            },
+            2
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": [
+      2,
+      4,
+      6
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (6)",
+    "rule": {
+      "map": [
+        {
+          "var": "integers"
+        },
+        {
+          "*": [
+            {
+              "var": ""
+            },
+            2
+          ]
+        }
+      ]
+    },
+    "data": null,
+    "result": []
+  },
+  {
+    "description": "Filter, map, all, none, and some (7)",
+    "rule": {
+      "map": [
+        {
+          "var": "desserts"
+        },
+        {
+          "var": "qty"
+        }
+      ]
+    },
+    "data": {
+      "desserts": [
+        {
+          "name": "apple",
+          "qty": 1
+        },
+        {
+          "name": "brownie",
+          "qty": 2
+        },
+        {
+          "name": "cupcake",
+          "qty": 3
+        }
+      ]
+    },
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "Filter, map, all, none, and some (8)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "integers"
+        },
+        {
+          "+": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "result": 10
+  },
+  {
+    "description": "Filter, map, all, none, and some (9)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "integers"
+        },
+        {
+          "+": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        {
+          "var": "start_with"
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "start_with": 59
+    },
+    "result": 69
+  },
+  {
+    "description": "Filter, map, all, none, and some (10)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "integers"
+        },
+        {
+          "+": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": null,
+    "result": 0
+  },
+  {
+    "description": "Filter, map, all, none, and some (11)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "integers"
+        },
+        {
+          "*": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        1
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "result": 24
+  },
+  {
+    "description": "Filter, map, all, none, and some (12)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "integers"
+        },
+        {
+          "*": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "result": 0
+  },
+  {
+    "description": "Filter, map, all, none, and some (13)",
+    "rule": {
+      "reduce": [
+        {
+          "var": "desserts"
+        },
+        {
+          "+": [
+            {
+              "var": "accumulator"
+            },
+            {
+              "var": "current.qty"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": {
+      "desserts": [
+        {
+          "name": "apple",
+          "qty": 1
+        },
+        {
+          "name": "brownie",
+          "qty": 2
+        },
+        {
+          "name": "cupcake",
+          "qty": 3
+        }
+      ]
+    },
+    "result": 6
+  },
+  {
+    "description": "Filter, map, all, none, and some (14)",
+    "rule": {
+      "all": [
+        {
+          "var": "integers"
+        },
+        {
+          ">=": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (15)",
+    "rule": {
+      "all": [
+        {
+          "var": "integers"
+        },
+        {
+          "==": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (16)",
+    "rule": {
+      "all": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (17)",
+    "rule": {
+      "all": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": []
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (18)",
+    "rule": {
+      "all": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (19)",
+    "rule": {
+      "all": [
+        {
+          "var": "items"
+        },
+        {
+          ">": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (20)",
+    "rule": {
+      "all": [
+        {
+          "var": "items"
+        },
+        {
+          "<": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (21)",
+    "rule": {
+      "all": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": []
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (22)",
+    "rule": {
+      "none": [
+        {
+          "var": "integers"
+        },
+        {
+          ">=": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (23)",
+    "rule": {
+      "none": [
+        {
+          "var": "integers"
+        },
+        {
+          "==": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (24)",
+    "rule": {
+      "none": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (25)",
+    "rule": {
+      "none": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": []
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (26)",
+    "rule": {
+      "none": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (27)",
+    "rule": {
+      "none": [
+        {
+          "var": "items"
+        },
+        {
+          ">": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (28)",
+    "rule": {
+      "none": [
+        {
+          "var": "items"
+        },
+        {
+          "<": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (29)",
+    "rule": {
+      "none": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": []
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (30)",
+    "rule": {
+      "some": [
+        {
+          "var": "integers"
+        },
+        {
+          ">=": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (31)",
+    "rule": {
+      "some": [
+        {
+          "var": "integers"
+        },
+        {
+          "==": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (32)",
+    "rule": {
+      "some": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (33)",
+    "rule": {
+      "some": [
+        {
+          "var": "integers"
+        },
+        {
+          "<": [
+            {
+              "var": ""
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "integers": []
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (34)",
+    "rule": {
+      "some": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (35)",
+    "rule": {
+      "some": [
+        {
+          "var": "items"
+        },
+        {
+          ">": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": true
+  },
+  {
+    "description": "Filter, map, all, none, and some (36)",
+    "rule": {
+      "some": [
+        {
+          "var": "items"
+        },
+        {
+          "<": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": [
+        {
+          "qty": 1,
+          "sku": "apple"
+        },
+        {
+          "qty": 2,
+          "sku": "banana"
+        }
+      ]
+    },
+    "result": false
+  },
+  {
+    "description": "Filter, map, all, none, and some (37)",
+    "rule": {
+      "some": [
+        {
+          "var": "items"
+        },
+        {
+          ">=": [
+            {
+              "var": "qty"
+            },
+            1
+          ]
+        }
+      ]
+    },
+    "data": {
+      "items": []
+    },
+    "result": false
+  },
+  {
+    "description": "additional.json (1)",
+    "rule": [
+      1,
+      {
+        "val": "x"
+      },
+      3
+    ],
+    "data": {
+      "x": 2
+    },
+    "result": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "description": "additional.json (2)",
+    "rule": {
+      "if": [
+        {
+          "val": "x"
+        },
+        [
+          {
+            "val": "y"
+          }
+        ],
+        99
+      ]
+    },
+    "data": {
+      "x": true,
+      "y": 42
+    },
+    "result": [
+      42
+    ]
+  },
+  {
+    "description": "additional.json (3)",
+    "rule": {
+      "reduce": [
+        {
+          "val": "integers"
+        },
+        {
+          "+": [
+            {
+              "val": "current"
+            },
+            {
+              "val": "accumulator"
+            }
+          ]
+        },
+        {
+          "val": "start_with"
+        }
+      ]
+    },
+    "data": {
+      "integers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "start_with": 59
+    },
+    "result": 69
+  },
+  {
+    "description": "additional.json (4)",
+    "rule": {
+      "val": {
+        "cat": [
+          "te",
+          "st"
+        ]
+      }
+    },
+    "data": {
+      "test": 1
+    },
+    "result": 1
+  },
+  {
+    "description": "chained.json (1)",
+    "rule": {
+      "max": [
+        1,
+        2,
+        3
+      ]
+    },
+    "data": {},
+    "result": 3
+  },
+  {
+    "description": "chained.json (2)",
+    "rule": {
+      "max": 1
+    },
+    "data": {},
+    "result": 1
+  },
+  {
+    "description": "chained.json (3)",
+    "rule": {
+      "max": {
+        "val": "data"
+      }
+    },
+    "data": {
+      "data": [
+        1,
+        2,
+        3
+      ]
+    },
+    "result": 3
+  },
+  {
+    "description": "chained.json (4)",
+    "rule": {
+      "cat": {
+        "merge": [
+          [
+            "Hello "
+          ],
+          [
+            "World",
+            "!"
+          ]
+        ]
+      }
+    },
+    "data": {},
+    "result": "Hello World!"
+  },
+  {
+    "description": "chained.json (5)",
+    "rule": {
+      "cat": {
+        "val": "text"
+      }
+    },
+    "data": {
+      "text": [
+        "Hello ",
+        "World",
+        "!"
+      ]
+    },
+    "result": "Hello World!"
+  },
+  {
+    "description": "chained.json (6)",
+    "rule": {
+      "max": {
+        "map": [
+          {
+            "filter": [
+              {
+                "val": "people"
+              },
+              {
+                "===": [
+                  {
+                    "val": "department"
+                  },
+                  "Engineering"
+                ]
+              }
+            ]
+          },
+          {
+            "val": "salary"
+          }
+        ]
+      }
+    },
+    "data": {
+      "people": [
+        {
+          "name": "Jay Ortiz",
+          "salary": 100414,
+          "department": "Engineering"
+        },
+        {
+          "name": "Louisa Hall",
+          "salary": 133601,
+          "department": "Sales"
+        },
+        {
+          "name": "Kyle Carlson",
+          "salary": 139803,
+          "department": "Sales"
+        },
+        {
+          "name": "Grace Ortiz",
+          "salary": 147068,
+          "department": "Engineering"
+        },
+        {
+          "name": "Isabelle Harrington",
+          "salary": 112704,
+          "department": "Marketing"
+        },
+        {
+          "name": "Harold Moore",
+          "salary": 125221,
+          "department": "Sales"
+        },
+        {
+          "name": "Clarence Schultz",
+          "salary": 127985,
+          "department": "Sales"
+        },
+        {
+          "name": "Jesse Keller",
+          "salary": 149212,
+          "department": "Engineering"
+        },
+        {
+          "name": "Phillip Holland",
+          "salary": 105888,
+          "department": "Marketing"
+        },
+        {
+          "name": "Mason Sullivan",
+          "salary": 147161,
+          "department": "Engineering"
+        }
+      ]
+    },
+    "result": 149212
+  },
+  {
+    "description": "chained.json (7)",
+    "rule": {
+      "+": {
+        "merge": [
+          {
+            "val": "x"
+          },
+          {
+            "val": "y"
+          }
+        ]
+      }
+    },
+    "data": {
+      "x": [
+        1,
+        2
+      ],
+      "y": 3
+    },
+    "result": 6
+  },
+  {
+    "description": "coalesce.json (1)",
+    "rule": {
+      "??": [
+        "hello"
+      ]
+    },
+    "data": null,
+    "result": "hello"
+  },
+  {
+    "description": "coalesce.json (2)",
+    "rule": {
+      "??": [
+        1
+      ]
+    },
+    "data": null,
+    "result": 1
+  },
+  {
+    "description": "coalesce.json (3)",
+    "rule": {
+      "??": [
+        true
+      ]
+    },
+    "data": null,
+    "result": true
+  },
+  {
+    "description": "coalesce.json (4)",
+    "rule": {
+      "??": [
+        {
+          "val": "person"
+        }
+      ]
+    },
+    "data": {
+      "person": {
+        "name": "John"
+      }
+    },
+    "result": {
+      "name": "John"
+    }
+  },
+  {
+    "description": "coalesce.json (5)",
+    "rule": {
+      "??": []
+    },
+    "data": null,
+    "result": null
+  },
+  {
+    "description": "coalesce.json (6)",
+    "rule": {
+      "??": [
+        null,
+        "hello"
+      ]
+    },
+    "data": null,
+    "result": "hello"
+  },
+  {
+    "description": "coalesce.json (7)",
+    "rule": {
+      "??": [
+        null,
+        null,
+        null,
+        "hello"
+      ]
+    },
+    "data": null,
+    "result": "hello"
+  },
+  {
+    "description": "coalesce.json (8)",
+    "rule": {
+      "??": [
+        "hello",
+        null
+      ]
+    },
+    "data": null,
+    "result": "hello"
+  },
+  {
+    "description": "coalesce.json (9)",
+    "rule": {
+      "??": [
+        null,
+        "hello",
+        null
+      ]
+    },
+    "data": null,
+    "result": "hello"
+  },
+  {
+    "description": "coalesce.json (10)",
+    "rule": {
+      "??": [
+        null,
+        1,
+        null
+      ]
+    },
+    "data": null,
+    "result": 1
+  },
+  {
+    "description": "coalesce.json (11)",
+    "rule": {
+      "??": [
+        null,
+        1,
+        "hello"
+      ]
+    },
+    "data": null,
+    "result": 1
+  },
+  {
+    "description": "coalesce.json (12)",
+    "rule": {
+      "??": [
+        null,
+        false,
+        "hello"
+      ]
+    },
+    "data": null,
+    "result": false
+  },
+  {
+    "description": "coalesce.json (13)",
+    "rule": {
+      "??": [
+        {
+          "val": [
+            "person",
+            "name"
+          ]
+        },
+        {
+          "val": "name"
+        },
+        "Unknown Name"
+      ]
+    },
+    "data": {
+      "person": {
+        "name": "John"
+      },
+      "name": "Jane"
+    },
+    "result": "John"
+  },
+  {
+    "description": "coalesce.json (14)",
+    "rule": {
+      "??": [
+        {
+          "val": [
+            "person",
+            "name"
+          ]
+        },
+        {
+          "val": "name"
+        },
+        "Unknown Name"
+      ]
+    },
+    "data": {
+      "name": "Jane"
+    },
+    "result": "Jane"
+  },
+  {
+    "description": "coalesce.json (15)",
+    "rule": {
+      "??": [
+        {
+          "val": [
+            "person",
+            "name"
+          ]
+        },
+        {
+          "val": "name"
+        },
+        "Unknown Name"
+      ]
+    },
+    "data": {},
+    "result": "Unknown Name"
+  },
+  {
+    "description": "exists.json (1)",
+    "rule": {
+      "exists": "hello"
+    },
+    "data": {
+      "hello": 1
+    },
+    "result": true
+  },
+  {
+    "description": "exists.json (2)",
+    "rule": {
+      "exists": [
+        "hello"
+      ]
+    },
+    "data": {
+      "hello": 1
+    },
+    "result": true
+  },
+  {
+    "description": "exists.json (3)",
+    "rule": {
+      "exists": "hello"
+    },
+    "data": {
+      "world": 1
+    },
+    "result": false
+  },
+  {
+    "description": "exists.json (4)",
+    "rule": {
+      "exists": [
+        ""
+      ]
+    },
+    "data": {
+      "": 1
+    },
+    "result": true
+  },
+  {
+    "description": "exists.json (5)",
+    "rule": {
+      "exists": [
+        ""
+      ]
+    },
+    "data": {
+      "hello": 1
+    },
+    "result": false
+  },
+  {
+    "description": "exists.json (6)",
+    "rule": {
+      "exists": [
+        "hello",
+        "world"
+      ]
+    },
+    "data": {
+      "hello": {
+        "world": false
+      }
+    },
+    "result": true
+  },
+  {
+    "description": "exists.json (7)",
+    "rule": {
+      "exists": [
+        "hello",
+        "world"
+      ]
+    },
+    "data": {
+      "hello": {
+        "x": false
+      }
+    },
+    "result": false
+  },
+  {
+    "description": "exists.json (8)",
+    "rule": {
+      "exists": "hello"
+    },
+    "data": {
+      "hello": null
+    },
+    "result": true
+  }
+]
