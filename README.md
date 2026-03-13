@@ -1,18 +1,28 @@
-# shiny/json-logic-php
-
-A modern, complete PHP implementation of the [JSON Logic](https://jsonlogic.com) specification.
+# shiny/json-logic-php ✨
 
 [![Packagist](https://img.shields.io/packagist/v/shiny/json-logic-php)](https://packagist.org/packages/shiny/json-logic-php)
 [![PHP](https://img.shields.io/badge/php-%3E%3D7.4-blue)](https://www.php.net)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## Features
+> **The most compliant PHP implementation of JSON Logic. ✨**
 
-- **601/601 official tests passing** (stdclass mode — see [Compatibility](#compatibility))
-- **Zero runtime dependencies** — stdlib only
-- **PHP 7.4+** compatible
-- Drop-in aliases: `JsonLogic` and `JSONLogic` available out of the box
-- Supports all core and community-extended operators: `var`, `missing`, `missing_some`, `if`, `==`, `===`, `!=`, `!==`, `!`, `!!`, `and`, `or`, `>`, `>=`, `<`, `<=`, `max`, `min`, `+`, `-`, `*`, `/`, `%`, `map`, `filter`, `reduce`, `all`, `none`, `some`, `merge`, `in`, `cat`, `substr`, `log`, `exists`, `val`, `coalesce`, `preserve`, `throw`, `try`
+**shiny/json-logic-php** is a **pure PHP**, **zero-dependency** JSON Logic implementation — the only PHP library that passes 100% of the official JSON Logic tests (in stdclass mode), with no external dependencies and PHP 7.4+ compatibility.
+
+This is the PHP port of [shiny_json_logic](https://rubygems.org/gems/shiny_json_logic), the most compliant Ruby implementation of JSON Logic.
+
+---
+
+## Why shiny/json-logic-php?
+
+The existing PHP JSON Logic library ([jwadhams/json-logic-php](https://github.com/jwadhams/json-logic-php)) covers ~69% of the official test suite and hasn't seen active maintenance. If you've hit edge cases with missing operators, incorrect truthiness, or subtle bugs — this is the fix.
+
+- ✅ **100% spec-compliant** — the only PHP library that passes all 601 official JSON Logic tests (stdclass mode).
+- 🧩 **Zero runtime dependencies** — stdlib only. Just plug & play.
+- 🕰️ **PHP 7.4+** compatible.
+- 🔧 **Actively maintained** and aligned with the evolving JSON Logic specification.
+- 🔁 **Drop-in aliases**: `JsonLogic` and `JSONLogic` available out of the box.
+
+---
 
 ## Installation
 
@@ -20,13 +30,15 @@ A modern, complete PHP implementation of the [JSON Logic](https://jsonlogic.com)
 composer require shiny/json-logic-php
 ```
 
+---
+
 ## Usage
 
 ```php
 use ShinyJsonLogic\ShinyJsonLogic;
 
 // Basic evaluation
-ShinyJsonLogic::apply(['==', [1, 1]]);
+ShinyJsonLogic::apply(['==' => [1, 1]]);
 // → true
 
 // With data
@@ -42,28 +54,111 @@ ShinyJsonLogic::apply($rule, $data);
 // Nested access
 ShinyJsonLogic::apply(['var' => 'user.age'], ['user' => ['age' => 30]]);
 // → 30
+```
 
-// Drop-in aliases also work
+### Nested logic
+
+Rules can be nested arbitrarily:
+
+```php
+$rule = [
+    'if' => [
+        ['var' => 'financing'],
+        ['missing' => ['apr']],
+        []
+    ]
+];
+
+ShinyJsonLogic::apply($rule, ['financing' => true]);
+// → ["apr"]
+```
+
+### Drop-in aliases
+
+`JsonLogic` and `JSONLogic` are available as aliases:
+
+```php
 JsonLogic::apply(['>' => [['var' => 'score'], 90]], ['score' => 95]);
 // → true
 ```
 
 ### Working with `json_decode`
 
-If you decode JSON without the `true` flag (stdClass mode), it works directly:
+In PHP, `json_decode` parses a JSON string into either stdclass objects or associative arrays:
 
 ```php
+json_decode('{"var": "name"}');        // → stdClass { $var: "name" }
+json_decode('{"var": "name"}', true);  // → ["var" => "name"]
+```
+
+Both modes work with this library:
+
+```php
+// stdclass mode (recommended — full 601/601 compliance)
 $rule = json_decode('{"var": "name"}');
 $data = json_decode('{"name": "Luis"}');
 ShinyJsonLogic::apply($rule, $data);
 // → "Luis"
+
+// arrays mode also works (600/601 — see Compatibility)
+$rule = json_decode('{"var": "name"}', true);
+$data = json_decode('{"name": "Luis"}', true);
+ShinyJsonLogic::apply($rule, $data);
+// → "Luis"
 ```
 
-If you use `json_decode($json, true)` (arrays mode), it also works — see [Compatibility](#compatibility) for the one known edge case.
+---
+
+## Supported operators
+
+| Category | Operators |
+|----------|-----------|
+| Data access | `var`, `missing`, `missing_some`, `exists`, `val` ✨ |
+| Logic | `if`, `?:`, `and`, `or`, `!`, `!!` |
+| Comparison | `==`, `===`, `!=`, `!==`, `>`, `>=`, `<`, `<=` |
+| Arithmetic | `+`, `-`, `*`, `/`, `%`, `max`, `min` |
+| String | `cat`, `substr` |
+| Array | `map`, `filter`, `reduce`, `all`, `none`, `some`, `merge`, `in` |
+| Coalesce | `??` ✨ |
+| Error handling | `throw`, `try` ✨ |
+| Utility | `coalesce`, `preserve` ✨, `log` |
+
+✨ = community-extended operators beyond the core spec.
+
+---
+
+## Error handling
+
+shiny/json-logic-php uses native PHP exceptions:
+
+```php
+// Unknown operators throw an exception
+ShinyJsonLogic::apply(['unknown_op' => [1, 2]], []);
+// → throws ShinyJsonLogic\Errors\UnknownOperator
+
+// You can use try/throw for controlled error handling within rules
+$rule = [
+    'try' => [
+        ['throw' => 'Something went wrong'],
+        ['cat' => ['Error: ', ['var' => 'type']]]
+    ]
+];
+ShinyJsonLogic::apply($rule, []);
+// → "Error: Something went wrong"
+```
+
+Exception classes:
+- `ShinyJsonLogic\Errors\UnknownOperator` — unknown operator in rule
+- `ShinyJsonLogic\Errors\InvalidArguments` — invalid arguments to operator
+- `ShinyJsonLogic\Errors\NotANumber` — NaN result in numeric operation
+
+Or catch `ShinyJsonLogic\Errors\Base` to handle all library errors in one sweep.
+
+---
 
 ## Compatibility
 
-shiny/json-logic-php is tested against the [official JSON Logic test suite](https://github.com/json-logic/.github/tree/main/tests) (601 tests).
+Tested against the [official JSON Logic test suite](https://github.com/json-logic/.github/tree/main/tests) (601 tests).
 
 | Mode | Passed | Notes |
 |------|--------|-------|
@@ -72,28 +167,36 @@ shiny/json-logic-php is tested against the [official JSON Logic test suite](http
 
 ### The arrays mode edge case
 
-In PHP, `json_decode('{}', true)` returns `[]` — an empty array, indistinguishable from `json_decode('[]', true)`. This means that in arrays mode, the engine cannot tell an empty object from an empty list, which causes one test case (empty object as `+` operand producing NaN) to behave differently from the spec.
+In PHP, `json_decode('{}', true)` returns `[]` — an empty array, indistinguishable from `json_decode('[]', true)`. This means that in arrays mode, the engine cannot tell an empty object from an empty array.
 
-This is a PHP language limitation, not a bug in this library. The [json-logic org is aware](https://github.com/json-logic/.github/blob/main/ACCEPTED_PROPOSALS.md) of per-language constraints. If your use case involves distinguishing empty objects from empty arrays at the top level, use stdclass mode.
+The one failing case is the `+` operator with an empty object passed directly as the operand list:
+
+```php
+// stdclass mode — throws NotANumber ✅
+ShinyJsonLogic::apply(json_decode('{"+" : {}}'));
+
+// arrays mode — returns 0 instead of NaN ❌
+ShinyJsonLogic::apply(json_decode('{"+" : {}}', true));
+```
+
+In arrays mode, `{"+" : {}}` is decoded as `["+" => []]` — zero operands — so `+` returns `0` instead of NaN. In stdclass mode, `{}` is preserved as an `EmptyObject` sentinel, and the operator correctly produces NaN.
+
+This is a PHP language limitation, not a bug in this library. The issue has been [reported to the json-logic org](https://github.com/orgs/json-logic/discussions/48).
+
+For this reason, if you need full spec compliance or interoperability with other JSON Logic implementations, we strongly recommend using stdclass mode (`json_decode` without `true`).
 
 All other 600 tests pass in both modes.
 
-## Operators
+---
 
-All standard JSON Logic operators are supported:
+## Development
 
-| Category | Operators |
-|----------|-----------|
-| Data access | `var`, `missing`, `missing_some`, `exists`, `val` |
-| Logic | `if`, `?:`, `and`, `or`, `!`, `!!` |
-| Comparison | `==`, `===`, `!=`, `!==`, `>`, `>=`, `<`, `<=` |
-| Arithmetic | `+`, `-`, `*`, `/`, `%`, `max`, `min` |
-| String | `cat`, `substr` |
-| Array | `map`, `filter`, `reduce`, `all`, `none`, `some`, `merge`, `in` |
-| Error handling | `throw`, `try` |
-| Utility | `coalesce`, `preserve`, `log` |
+```bash
+composer install
+./vendor/bin/phpunit
+```
 
-## Running the official test suite
+To run the official test suite against live test data:
 
 ```bash
 ./run-official-tests.sh
@@ -101,11 +204,35 @@ All standard JSON Logic operators are supported:
 
 Requires Docker and curl. Fetches the official tests at runtime from `github.com/json-logic/.github`.
 
+---
+
+## Contributing
+
+Contributions are welcome — especially:
+
+- spec alignment improvements
+- missing operators
+- edge-case tests
+
+Please include tests with any change.
+
+Repository: https://github.com/luismoyano/shiny-json-logic-php
+
+---
+
 ## Related projects
 
 - [shiny_json_logic (Ruby)](https://rubygems.org/gems/shiny_json_logic) — 601/601 official tests, the most compliant Ruby implementation
 - [jsonlogicruby.com](https://jsonlogicruby.com) — JSON Logic playground, docs, and specification reference
 
+---
+
 ## License
 
-MIT
+MIT License.
+
+Use it. Fork it. Ship it. (:
+
+---
+
+> Shine bright like a 🐘
