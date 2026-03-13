@@ -1,8 +1,29 @@
 {
     "name": "shiny/json-logic-php",
-    "description": "A modern, complete PHP implementation of JsonLogic",
+    "description": "A modern, complete PHP implementation of JsonLogic. 601/601 official tests. Zero dependencies. PHP 7.4+.",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "json-logic",
+        "jsonlogic",
+        "json logic",
+        "rules engine",
+        "rule engine",
+        "business rules",
+        "feature flags",
+        "json"
+    ],
+    "homepage": "https://jsonlogicruby.com",
+    "support": {
+        "source": "https://github.com/luismoyano/shiny-json-logic-php",
+        "issues": "https://github.com/luismoyano/shiny-json-logic-php/issues"
+    },
+    "authors": [
+        {
+            "name": "Luis Moyano",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=7.4"
     },
