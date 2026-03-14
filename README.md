@@ -1,12 +1,12 @@
 # shiny/json-logic-php ✨
 
 [![Packagist](https://img.shields.io/packagist/v/shiny/json-logic-php)](https://packagist.org/packages/shiny/json-logic-php)
-[![PHP](https://img.shields.io/badge/php-%3E%3D7.4-blue)](https://www.php.net)
+[![PHP](https://img.shields.io/badge/php-%3E%3D8.1-blue)](https://www.php.net)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 > **The most compliant PHP implementation of JSON Logic. ✨**
 
-**shiny/json-logic-php** is a **pure PHP**, **zero-dependency** JSON Logic implementation — the only PHP library that passes 100% of the official JSON Logic tests (in stdclass mode), with no external dependencies and PHP 7.4+ compatibility.
+**shiny/json-logic-php** is a **pure PHP**, **zero-dependency** JSON Logic implementation — the only PHP library that passes 100% of the official JSON Logic tests (in stdclass mode), with no external dependencies and PHP 8.1+ compatibility.
 
 This is the PHP port of [shiny_json_logic](https://rubygems.org/gems/shiny_json_logic), the most compliant Ruby implementation of JSON Logic.
 
@@ -18,7 +18,7 @@ The existing PHP JSON Logic library ([jwadhams/json-logic-php](https://github.co
 
 - ✅ **100% spec-compliant** — the only PHP library that passes all 601 official JSON Logic tests (stdclass mode).
 - 🧩 **Zero runtime dependencies** — stdlib only. Just plug & play.
-- 🕰️ **PHP 7.4+** compatible.
+- 🕰️ **PHP 8.1+** compatible.
 - 🔧 **Actively maintained** and aligned with the evolving JSON Logic specification.
 - 🔁 **Drop-in aliases**: `JsonLogic` and `JSONLogic` available out of the box.
 

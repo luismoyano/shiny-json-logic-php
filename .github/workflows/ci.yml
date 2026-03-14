@@ -7,7 +7,29 @@ on:
     branches: [master]
 
 jobs:
+  fetch-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download official test suite
+        run: |
+          BASE_URL="https://raw.githubusercontent.com/json-logic/.github/main/tests"
+          TREE_API="https://api.github.com/repos/json-logic/.github/git/trees/main?recursive=1"
+          mkdir -p official-tests
+          while read -r rel; do
+            mkdir -p "official-tests/$(dirname "$rel")"
+            curl -sSf "$BASE_URL/$rel" > "official-tests/$rel"
+          done < <(curl -sSf "$TREE_API" \
+            | grep '"path": "tests/.*\.json"' \
+            | sed 's/.*"path": "tests\///;s/"[,]*//')
+
+      - name: Upload test suite artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-tests
+          path: official-tests/
+
   test:
+    needs: fetch-tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -18,6 +40,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Download test suite artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: official-tests
+          path: official-tests/
+
       - name: Set up PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
         with:
@@ -27,5 +55,8 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
 
-      - name: Run tests
+      - name: Run PHPUnit tests
         run: ./vendor/bin/phpunit
+
+      - name: Run official test suite
+        run: bash run-official-tests.sh --no-docker --test-dir official-tests

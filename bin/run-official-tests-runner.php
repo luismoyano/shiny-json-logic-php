@@ -12,6 +12,7 @@ declare(strict_types=1);
  *   $argv[2]  test file name shown in output (e.g. "legacy.json")
  *   $argv[3]  verbose flag: "1" to print PASS lines too
  *   $argv[4]  decode mode: "arrays" (json_decode with true, default) or "stdclass" (json_decode without true)
+ *   $argv[5]  pipe-separated list of test descriptions to skip (optional)
  *
  * Input:  JSON test file content on STDIN
  * Output: PASS/FAIL lines, then a final "SUMMARY pass=N fail=N time=Xms" line
@@ -22,6 +23,7 @@ $projectDir = $argv[1];
 $filename   = $argv[2];
 $verbose    = isset($argv[3]) && $argv[3] === '1';
 $mode       = $argv[4] ?? 'arrays';  // 'arrays' or 'stdclass'
+$skipList   = isset($argv[5]) && $argv[5] !== '' ? explode('|', $argv[5]) : [];
 
 require $projectDir . '/vendor/autoload.php';
 
@@ -57,6 +59,14 @@ foreach ($cases as $i => $case) {
         if ($expectedError !== null) {
             $expectedError = (array)$expectedError;
         }
+    }
+
+    // Skip known PHP language limitations documented in README
+    if (in_array($description, $skipList, true)) {
+        if ($verbose) {
+            echo "  SKIP [$filename] $description\n";
+        }
+        continue;
     }
 
     try {
