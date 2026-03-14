@@ -49,7 +49,7 @@ jobs:
           path: official-tests/
 
       - name: Set up PHP ${{ matrix.php }}
-        uses: shivammathur/setup-php@d59004228537ca90c8dca680592a08a675bf52b6 # v2
+        uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
