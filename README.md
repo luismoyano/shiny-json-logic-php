@@ -14,7 +14,12 @@ This is the PHP port of [shiny_json_logic](https://rubygems.org/gems/shiny_json_
 
 ## Why shiny/json-logic-php?
 
-The existing PHP JSON Logic library ([jwadhams/json-logic-php](https://github.com/jwadhams/json-logic-php)) covers ~69% of the official test suite and hasn't seen active maintenance. If you've hit edge cases with missing operators, incorrect truthiness, or subtle bugs — this is the fix.
+This library was built as a modern, fully spec-compliant alternative to
+[`jwadhams/json-logic-php`](https://github.com/jwadhams/json-logic-php), which at the
+time of writing passes ~69% of the official test suite, has known vulnerabilities in its
+dependency tree, and has not seen active maintenance since mid-2024.
+
+shiny/json-logic-php is designed as a drop-in replacement.
 
 - ✅ **100% spec-compliant** — the only PHP library that passes all 601 official JSON Logic tests (stdclass mode).
 - 🧩 **Zero runtime dependencies** — stdlib only. Just plug & play.
