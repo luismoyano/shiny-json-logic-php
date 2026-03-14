@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [master]
 
+permissions: read-all
+
 jobs:
   fetch-tests:
     runs-on: ubuntu-latest
@@ -23,7 +25,7 @@ jobs:
             | sed 's/.*"path": "tests\///;s/"[,]*//')
 
       - name: Upload test suite artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: official-tests
           path: official-tests/
@@ -38,16 +40,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Download test suite artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: official-tests
           path: official-tests/
 
       - name: Set up PHP ${{ matrix.php }}
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@d59004228537ca90c8dca680592a08a675bf52b6 # v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
