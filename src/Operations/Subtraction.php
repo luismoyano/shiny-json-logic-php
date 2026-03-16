@@ -35,7 +35,10 @@ class Subtraction extends AbstractOperation
                 static::handleInvalidArgs();
             }
             if ($count === 1) {
-                return $result * -1;
+                $negated = $result * -1;
+                // Avoid -0.0: PHP's float negation of 0.0 produces -0.0 which
+                // serialises to "-0" in JSON, but the spec expects 0.
+                return $negated === 0.0 ? 0 : $negated;
             }
 
             return $result;

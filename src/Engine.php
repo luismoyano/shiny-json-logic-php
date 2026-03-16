@@ -23,8 +23,12 @@ class Engine
 
     public static function evaluate(mixed $rule, ScopeStack $scopeStack): mixed
     {
-        // Normalize stdClass to associative array so callers can use json_decode without true flag
+        // Normalize stdClass to associative array so callers can use json_decode without true flag.
+        // Empty stdClass ({}) is not an operator — pass through as-is before converting.
         if (is_object($rule) && !($rule instanceof DataArray)) {
+            if ($rule instanceof \stdClass && count((array)$rule) === 0) {
+                return $rule;
+            }
             $rule = (array)$rule;
         }
 

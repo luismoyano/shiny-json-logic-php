@@ -221,5 +221,39 @@
         "rule": { "if": [{ ">=": [{ "var": "age" }, 18] }, "adult", "minor"] },
         "data": { "age": 28 },
         "result": "adult"
+    },
+
+    "=== empty object passthrough ===",
+    {
+        "description": "empty object {} as rule passes through unchanged",
+        "rule": {},
+        "data": null,
+        "result": {}
+    },
+    {
+        "description": "array of empty objects passes through unchanged",
+        "rule": [{}, {}],
+        "data": null,
+        "result": [{}, {}]
+    },
+
+    "=== unary minus with zero ===",
+    {
+        "description": "unary minus of integer 0 returns 0, not -0",
+        "rule": { "-": 0 },
+        "data": null,
+        "result": 0
+    },
+    {
+        "description": "unary minus of string 0 returns 0, not -0",
+        "rule": { "-": "0" },
+        "data": null,
+        "result": 0
+    },
+    {
+        "description": "unary minus of empty string returns 0, not -0",
+        "rule": { "-": "" },
+        "data": null,
+        "result": 0
     }
 ]

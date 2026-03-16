@@ -28,6 +28,10 @@ class Truthy
         if ($subject === null) {
             return false;
         }
+        if ($subject instanceof \stdClass) {
+            // Empty object {} is falsy (mirrors JS: Boolean({}) is true, but JSONLogic treats it as falsy)
+            return count((array)$subject) > 0;
+        }
         return true;
     }
 }
