@@ -25,23 +25,28 @@ class Missing extends AbstractOperation
             return $keys;
         }
 
-        $dataKeys = self::deepKeys($currentData);
-        return array_values(array_diff($keys, $dataKeys));
-    }
-
-    protected static function deepKeys(array $hash): array
-    {
-        $result = [];
-        foreach ($hash as $key => $value) {
-            $subKeys = is_array($value) ? self::deepKeys($value) : [];
-            if (empty($subKeys)) {
-                $result[] = (string)$key;
-            } else {
-                foreach ($subKeys as $sub) {
-                    $result[] = $key . '.' . $sub;
-                }
+        $missing = [];
+        foreach ($keys as $key) {
+            if (!self::isPresent($currentData, $key)) {
+                $missing[] = $key;
             }
         }
-        return $result;
+        return $missing;
+    }
+
+    /**
+     * Walks a dotted path ("user.address.city", "items.0") through the data.
+     * A key counts as present when it exists, whatever its value.
+     */
+    protected static function isPresent(array $data, string $key): bool
+    {
+        $current = $data;
+        foreach (explode('.', $key) as $segment) {
+            if (!is_array($current) || !array_key_exists($segment, $current)) {
+                return false;
+            }
+            $current = $current[$segment];
+        }
+        return true;
     }
 }

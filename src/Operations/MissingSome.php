@@ -24,13 +24,17 @@ class MissingSome extends Missing
             return $keys;
         }
 
-        $dataKeys = array_map('strval', array_keys($currentData));
-        $present = array_values(array_intersect($keys, $dataKeys));
+        $missing = [];
+        foreach ($keys as $key) {
+            if (!self::isPresent($currentData, $key)) {
+                $missing[] = $key;
+            }
+        }
 
-        if (count($present) >= $minRequired) {
+        if (count($keys) - count($missing) >= $minRequired) {
             return [];
         }
 
-        return parent::execute($keys, $scopeStack);
+        return $missing;
     }
 }
