@@ -255,5 +255,30 @@
         "rule": { "-": "" },
         "data": null,
         "result": 0
+    },
+    "=== missing / missing_some with dotted keys ===",
+    {
+        "description": "missing finds dotted keys and array indexes",
+        "rule": { "missing": ["user.name", "user.address.city", "tags.1", "tags.2", "user.email"] },
+        "data": { "user": { "name": "Ann", "address": { "city": "Rome" } }, "tags": ["a", "b"] },
+        "result": ["tags.2", "user.email"]
+    },
+    {
+        "description": "missing does not report keys holding an object or an array",
+        "rule": { "missing": ["user", "user.address", "tags"] },
+        "data": { "user": { "name": "Ann", "address": { "city": "Rome" } }, "tags": ["a", "b"] },
+        "result": []
+    },
+    {
+        "description": "missing_some counts present dotted keys",
+        "rule": { "missing_some": [1, ["user.name", "user.email"]] },
+        "data": { "user": { "name": "Ann" } },
+        "result": []
+    },
+    {
+        "description": "missing_some returns missing dotted keys when not enough are present",
+        "rule": { "missing_some": [2, ["user.name", "user.email", "user.phone"]] },
+        "data": { "user": { "name": "Ann" } },
+        "result": ["user.email", "user.phone"]
     }
 ]
